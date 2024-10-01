@@ -1,0 +1,28 @@
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.text-success {
+    font-weight: bold;
+    color: green;
+}
+
+.text-danger {
+    font-weight: bold;
+    color: red;
+}
+
+.text-warning {
+    font-weight: bold;
+    color: orange;
+}
