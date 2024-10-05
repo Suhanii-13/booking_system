@@ -9,25 +9,27 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
-const User = require('./models/user'); 
-const Booking = require('./models/booking'); 
+const User = require("./models/user");
+const Booking = require("./models/booking");
+
+app.use(express.json());
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.engine('ejs', ejsMate);
+app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const sessionOption = {
-  secret: "thisshouldbeabettersecret", 
+  secret: "thisshouldbeabettersecret",
   resave: false,
   saveUninitialized: true,
   cookie: {
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-  }
+  },
 };
 app.use(session(sessionOption));
 app.use(flash());
@@ -48,18 +50,20 @@ app.use((req, res, next) => {
   next();
 });
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/bookingSystem"
-main().then(() => {
-  console.log("Connected to DB");
-}).catch((err) => {
-  console.log(err);
-});
+const MONGO_URL = "mongodb://127.0.0.1:27017/bookingSystem";
+main()
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
 app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+  console.log("Server is listening on port 3000");
 });
 
 app.get("/home", (req, res) => {
@@ -73,6 +77,7 @@ app.get("/signup", (req, res) => {
 app.post("/signup", async (req, res) => {
   try {
     const { username, role, password } = req.body;
+  res.send(`SignUp successful for ${username}`);
     const newUser = new User({ role, username });
     const registeredUser = await User.register(newUser, password);
 
@@ -98,7 +103,10 @@ app.post("/login", async (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      req.flash("error", "Incorrect username or password. Please try again or sign up!");
+      req.flash(
+        "error",
+        "Incorrect username or password. Please try again or sign up!"
+      );
       return res.redirect("/login");
     }
     req.logIn(user, (err) => {
@@ -126,13 +134,13 @@ app.get("/new", (req, res) => {
   res.render("pages/new.ejs");
 });
 
-app.post('/new', async (req, res) => {
+app.post("/new", async (req, res) => {
   try {
     if (!req.user) {
       req.flash("error", "You need to be logged in to book a seminar hall.");
-      return res.redirect('/login');
+      return res.redirect("/login");
     }
-    
+
     const bookingData = req.body.book;
     console.log("Booking Data:", bookingData);
 
@@ -145,62 +153,62 @@ app.post('/new', async (req, res) => {
       endTime: bookingData.endTime,
       contactNumber: bookingData.contactNumber,
       tools: bookingData.tools,
-      studentId: req.user._id, 
+      studentId: req.user._id,
     });
 
     await newBooking.save();
     req.flash("success", "Booking made successfully!");
-    res.redirect('/home');
+    res.redirect("/home");
   } catch (error) {
     console.error("Booking Error:", error);
     req.flash("error", "Error booking the seminar hall.");
-    res.status(500).redirect('/new');
+    res.status(500).redirect("/new");
   }
 });
 
-app.get('/show', async (req, res) => {
+app.get("/show", async (req, res) => {
   try {
     const bookings = await Booking.find({});
-    res.render('pages/show.ejs', { bookings });
+    res.render("pages/show.ejs", { bookings });
   } catch (error) {
     req.flash("error", "Error retrieving bookings.");
-    res.status(500).redirect('/home');
+    res.status(500).redirect("/home");
   }
 });
 
-// Approve 
-app.post('/approve/:id', async (req, res) => {
+// Approve
+app.post("/approve/:id", async (req, res) => {
   try {
     await Booking.findByIdAndUpdate(req.params.id, { status: "approved" });
     req.flash("success", "Booking approved successfully!");
-    res.redirect('/show');
+    res.redirect("/show");
   } catch (error) {
     req.flash("error", "Error approving booking.");
-    res.status(500).redirect('/show');
+    res.status(500).redirect("/show");
   }
 });
 
-// Reject 
-app.post('/reject/:id', async (req, res) => {
+// Reject
+app.post("/reject/:id", async (req, res) => {
   try {
     const booking = await Booking.findById(req.params.id);
     await Booking.findByIdAndUpdate(req.params.id, { status: "rejected" });
     req.flash("success", "Booking rejected.");
-    
-    res.redirect('/show');
+
+    res.redirect("/show");
   } catch (error) {
     req.flash("error", "Error rejecting booking.");
-    res.status(500).redirect('/show');
+    res.status(500).redirect("/show");
   }
 });
 
-// Message 
+// Message
 app.get("/msg", async (req, res) => {
   try {
-    const bookings = await Booking.find({ studentId: req.user._id }); 
+    const bookings = await Booking.find({ studentId: req.user._id });
     res.render("pages/msg.ejs", { bookings });
   } catch (error) {
     req.flash("error", "Error retrieving your booking status.");
-    res.status(500).redirect('/home');
+    res.status(500).redirect("/home");
   }
 });
