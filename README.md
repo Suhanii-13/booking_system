@@ -26,5 +26,12 @@ This project has been an exciting opportunity for me to apply my technical skill
 ## Frontend View
 
 Here is a preview of the Seminar Hall Booking System:
+## Frontend View
+
+![Screenshot from 2024-10-02 15-54-37](https://github.com/user-attachments/assets/591a5568-1a9d-43a5-b636-42fbdd3332fb) 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/0a67df27-73ee-439c-887b-6243a83ffbfd" alt="1st half" width="49%">
+  <img src="https://github.com/user-attachments/assets/11c83085-d6c5-49d0-81e5-f6f93472713e" alt="2nd half" width="49%">
+</div>
 
 
