@@ -4,23 +4,38 @@
   <h3 class="text-center">Your Bookings Status</h3>
   <div class="row">
     <% for (let booking of bookings) { %>
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-          <div class="card-body">
-            <h5 class="card-title"><%= booking.organizerName %></h5>
-            <p class="card-text"><strong>Event Details:</strong> <%= booking.eventDetails %></p>
-            <p class="card-text"><strong>Status:</strong> 
-              <% if (booking.status === 'approved') { %>
-                <span class="text-success">Approved </span>
-              <% } else if (booking.status === 'rejected') { %>
-                <span class="text-danger">Rejected </span>
-              <% } else { %>
-                <span class="text-warning">Pending </span>
-              <% } %>
-            </p>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+          <h5 class="card-title"><%= booking.organizerName %></h5>
+          <p class="card-text">
+            <strong>Event Details:</strong> <%= booking.eventDetails %>
+          </p>
+          <p class="card-text">
+            <strong>Status:</strong>
+            <% if (booking.status === 'approved') { %>
+            <span class="text-success">Approved </span>
+            <% } else if (booking.status === 'rejected') { %>
+            <span class="text-danger">Rejected </span>
+            <% } else { %>
+            <span class="text-warning">Pending </span>
+            <% } %>
+          </p>
+          <div class="d-flex justify-content-between mt-3">
+            <form
+              action="/approve/<%= booking._id %>"
+              method="POST"
+              class="me-2"
+            >
+              <button type="submit" class="btn btn-success"> Edit </button>
+            </form>
+            <form action="/reject/<%= booking._id %>" method="POST">
+              <button type="submit" class="btn btn-danger">cancle booking</button>
+            </form>
           </div>
         </div>
       </div>
+    </div>
     <% } %>
   </div>
 </div>

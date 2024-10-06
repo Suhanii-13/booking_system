@@ -1,82 +1,124 @@
-<% layout('/layouts/boilerplate') -%>
-    <br><br>
-    <div class="row mt-2">
-        <div class="col-8 offset-2">
+<% layout('/layouts/boilerplate') -%> <br /><br />
+<div class="row mt-2">
+  <div class="col-8 offset-2">
     <h3>Book Seminar hall</h3>
-    <form method="POST" action="/new" 
-    class="needs-validation" id="bookingForm" novalidate>            
-        <div class="mb-3">
-            <label for="organizerName" class="form-label">Name of the Organizer</label> 
-            <input name="book[organizerName]" placeholder="Enter Name" type="text" class="form-control" required>
-            <div class="invalid-feedback">
-             Please write title 
-            </div>
-        </div> 
+    <form
+      method="POST"
+      action="/new"
+      class="needs-validation"
+      id="bookingForm"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="organizerName" class="form-label"
+          >Name of the Organizer</label
+        >
+        <input
+          name="book[organizerName]"
+          placeholder="Enter Name"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please write title</div>
+      </div>
 
-        <div class="row">
-            <div class="mb-3 col-md-5">
-                <label for="department" class="form-label">Department Name</label> 
-                <input name="book[department]" placeholder="Enter Department" type="text" class="form-control" required>
-                <div class="invalid-feedback">
-                    Please write  the Department
-                </div>
-            </div>
-
-            <div class="mb-3 col-md-5">
-                <label for="chiefGuestsExpected" class="form-label">Number of Chief Guests Expected</label> 
-                <input name="book[chiefGuestsExpected]" placeholder="Enter number" type="number" class="form-control" required>
-                <div class="invalid-feedback">
-                    Please enter valid number
-                </div>
-            </div>
-        </div> 
-            
-    <div class="row">
+      <div class="row">
         <div class="mb-3 col-md-5">
-            <label for="startTime" class="form-label">Start time</label> 
-            <input name="book[startTime]" placeholder="Enter time in words eg: 1pm" type="text" class="form-control" required>
-            <div class="invalid-feedback">
-                Please enter start time
-            </div>
+          <label for="department" class="form-label">Department Name</label>
+          <input
+            name="book[department]"
+            placeholder="Enter Department"
+            type="text"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please write the Department</div>
         </div>
 
         <div class="mb-3 col-md-5">
-            <label for="endTime" class="form-label">End time</label> 
-            <input name="book[endTime]" placeholder="Enter time in words eg: 1pm" type="text" class="form-control" required>
-            <div class="invalid-feedback">
-                Please enter end time 
-            </div>
+          <label for="chiefGuestsExpected" class="form-label"
+            >Number of Chief Guests Expected</label
+          >
+          <input
+            name="book[chiefGuestsExpected]"
+            placeholder="Enter number"
+            type="number"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid number</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-5">
+          <label for="startTime" class="form-label">Start time</label>
+          <input
+            name="book[startTime]"
+            placeholder="Enter time in words eg: 1pm"
+            type="time"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter start time</div>
+        </div>
+
+        <div class="mb-3 col-md-5">
+          <label for="endTime" class="form-label">End time</label>
+          <input
+            name="book[endTime]"
+            placeholder="Enter time in words eg: 1pm"
+            type="time"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter end time</div>
         </div>
 
         <div class="mb-3">
-            <label for="eventDetails" class="form-label">Details of the Event</label> 
-            <textarea name="book[eventDetails]" placeholder="Enter description" class="form-control" required></textarea>
-            <div class="invalid-feedback">
-                Please write description 
-            </div>
+          <label for="eventDetails" class="form-label"
+            >Details of the Event</label
+          >
+          <textarea
+            name="book[eventDetails]"
+            placeholder="Enter description"
+            class="form-control"
+            required
+          ></textarea>
+          <div class="invalid-feedback">Please write description</div>
         </div>
 
         <div class="mb-3">
-            <label for="contactNumber" class="form-label">Contact Number </label> 
-            <input name="book[contactNumber]" placeholder="Enter Contact Number" type="text" class="form-control" required>
-            <div class="invalid-feedback">
-                Please Enter valid number
-            </div>
+          <label for="contactNumber" class="form-label">Contact Number </label>
+          <input
+            name="book[contactNumber]"
+            placeholder="Enter Contact Number"
+            type="text"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please Enter valid number</div>
         </div>
 
         <div class="mb-3">
-            <label for="tools" class="form-label">Other Facilities Required</label> 
-            <textarea style="height: 8rem;"  name="book[tools]" placeholder="like LCD Projector ,Mic,Projector Remote, Presenter Pointer + USB dongle Wireless KB/Mouse + USB dongle LCD Screen Remote etc" class="form-control" required></textarea>
-             
-             <div class="invalid-feedback">
-                Please Enter valid number
-             </div>
+          <label for="tools" class="form-label"
+            >Other Facilities Required</label
+          >
+          <textarea
+            style="height: 8rem"
+            name="book[tools]"
+            placeholder="like LCD Projector ,Mic,Projector Remote, Presenter Pointer + USB dongle Wireless KB/Mouse + USB dongle LCD Screen Remote etc"
+            class="form-control"
+            required
+          ></textarea>
+
+          <div class="invalid-feedback">Please Enter valid number</div>
         </div>
-    </div>  
-       
-        <button type="submit" class="btn btn-dark add-btn mt-3">Submit</button>
-        <br><br>
+      </div>
+
+      <button type="submit" class="btn btn-dark add-btn mt-3">Submit</button>
+      <br /><br />
     </form>
+  </div>
 </div>
-</div>
-
