@@ -102,7 +102,7 @@ app.post(
         tools: bookingData.tools,
         studentId: req.user._id,
       });
-
+      console.log(`User saved with ID: ${newBooking._id}`);
       await newBooking.save();
       req.flash("success", "Booking made successfully!");
       res.redirect("/home");
@@ -165,13 +165,34 @@ app.get(
   wrapAsync(async (req, res) => {
     try {
       const bookings = await Booking.find({ studentId: req.user._id });
-      res.render("pages/msg.ejs", { bookings });
+      res.render("pages/msg.ejs", { bookings});
     } catch (error) {
       req.flash("error", "Error retrieving your booking status.");
       res.status(500).redirect("/home");
     }
   })
 );
+
+
+app.delete(
+  "/msg/delete/:id",
+  wrapAsync(async (req, res) => {
+    try {
+      const deletedBooking = await Booking.findByIdAndDelete(req.params.id);
+      if (!deletedBooking) {
+        req.flash("error", "Booking not found.");
+        return res.redirect("/show");
+      }
+      req.flash("success", "Booking canceled successfully!");
+      res.redirect("/show");
+    } catch (error) {
+      console.error("Error deleting booking:", error);
+      req.flash("error", "Error canceling booking.");
+      res.status(500).redirect("/show");
+    }
+  })
+);
+
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not Found"));

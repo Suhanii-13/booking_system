@@ -27,10 +27,16 @@
               method="POST"
               class="me-2"
             >
-              <button type="submit" class="btn btn-success"> Edit </button>
+              <button type="submit" class="btn btn-success">Edit</button>
             </form>
-            <form action="/reject/<%= booking._id %>" method="POST">
-              <button type="submit" class="btn btn-danger">cancle booking</button>
+
+            <form
+              action="/msg/delete/<%= booking._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button type="submit" class="btn btn-danger">
+                Cancel Booking
+              </button>
             </form>
           </div>
         </div>
