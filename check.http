@@ -1,8 +1,2 @@
-POST  http://localhost:3000/signup
-Content-Type: application/json
 
-{
-    "username":"hhghjgj",
-    "role":"admin",
-    "password":"14554"
-}
+GET http://localhost:3000/msg/edit/6708427d32d37a0606a8ef0c

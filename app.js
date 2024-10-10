@@ -69,11 +69,13 @@ app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });
 
+
+
+app.use("/", userRouter);
+
 app.get("/home", (req, res) => {
   res.render("pages/index.ejs");
 });
-
-app.use("/", userRouter);
 
 app.get("/new", isLoggedIn, (req, res) => {
   res.render("pages/new.ejs");
@@ -172,6 +174,58 @@ app.get(
     }
   })
 );
+
+app.get(
+  "/msg/edit/:id",
+  wrapAsync(async (req, res) => {
+    const id = req.params.id; 
+    let editBooking = await Booking.findById(id);
+
+    if (!editBooking) {
+      req.flash("error", "Booking not found.");
+      return res.redirect("/show"); 
+    }
+    res.render("pages/edit.ejs", { booking: editBooking });
+  })
+);
+
+app.patch(
+  "/msg/edit/:id",
+  wrapAsync(async (req, res) => {
+    const id = req.params.id;
+
+    try {
+      const updatedData = req.body.book;
+
+      const updatedBooking = await Booking.findByIdAndUpdate(
+        id,
+        {
+          organizerName: updatedData.organizerName,
+          department: updatedData.department,
+          eventDetails: updatedData.eventDetails,
+          chiefGuestsExpected: parseInt(updatedData.chiefGuestsExpected, 10),
+          startTime: updatedData.startTime,
+          endTime: updatedData.endTime,
+          contactNumber: updatedData.contactNumber,
+          tools: updatedData.tools,
+        },
+        { new: true }
+      );
+
+      if (!updatedBooking) {
+        req.flash("error", "Booking not found.");
+        return res.redirect("/msg");
+      }
+      req.flash("success", "Booking updated successfully!");
+      res.redirect("/show");
+    } catch (error) {
+      console.error("Error updating booking:", error);
+      req.flash("error", "Error updating booking.");
+      res.status(500).redirect("/msg");
+    }
+  })
+);
+
 
 
 app.delete(
