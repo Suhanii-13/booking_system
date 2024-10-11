@@ -3,6 +3,29 @@ const router = express.Router();
 const Booking = require("../models/booking"); 
 const { isLoggedIn } = require("../middleware");
 const wrapAsync = require("../utils/wrapAsync") ;
+const cron = require("node-cron");
+
+
+// This will run every 5 seconds for testing
+cron.schedule("*/30 * * * * *", async () => {
+  // Runs every 5 seconds
+  try {
+    const now = new Date();
+    const time5SecAgo = new Date(now.getTime() - 5 * 1000); 
+
+    const deletedBookings = await Booking.deleteMany({
+      createdAt: { $lt: time5SecAgo }, 
+      status: { $in: ["approved", "rejected"] }, 
+    });
+
+    console.log(
+      `Auto-deleted ${deletedBookings.deletedCount} bookings older than 5 seconds`
+    );
+  } catch (error) {
+    console.error("Error during auto-delete of bookings:", error);
+  }
+});
+
 
 // Home Route
 router.get("/home", (req, res) => {
