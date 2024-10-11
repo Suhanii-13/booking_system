@@ -1,4 +1,16 @@
 <% layout('/layouts/boilerplate') -%>
+<style>
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: red;
+        cursor: pointer;
+    }
+</style>
 
 <div class="container mt-5">
     <h3 class="text-center">Seminar Hall Bookings</h3>
@@ -7,6 +19,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="card-body">
+                        <button class="close-btn" onclick="removeCard(this)">×</button>
                         <h5 class="card-title"><%= booking.organizerName %></h5>
                         <p class="card-text"><strong>Department:</strong> <%= booking.department %></p>
                         <p class="card-text"><strong>Event Details:</strong> <%= booking.eventDetails %></p>
@@ -30,3 +43,18 @@
         <% } %>
     </div>
 </div>
+
+<script>
+    function hideButtons(form) {
+        const buttonsContainer = form.parentElement;
+        buttonsContainer.querySelectorAll('button').forEach(button => {
+            button.style.display = 'none';
+        });
+    }
+
+    function removeCard(button) {
+        const card = button.closest('.card');
+        card.style.display = 'none';
+    }
+</script>
+
