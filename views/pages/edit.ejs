@@ -1,5 +1,4 @@
-<% layout('/layouts/boilerplate') -%> 
-<br /><br />
+<% layout('/layouts/boilerplate') -%> <br /><br />
 <div class="row mt-2">
   <div class="col-8 offset-2">
     <h3>Edit Seminar Hall Booking</h3>
@@ -11,7 +10,9 @@
       novalidate
     >
       <div class="mb-3">
-        <label for="organizerName" class="form-label">Name of the Organizer</label>
+        <label for="organizerName" class="form-label"
+          >Name of the Organizer</label
+        >
         <input
           name="book[organizerName]"
           placeholder="Enter Name"
@@ -38,7 +39,9 @@
         </div>
 
         <div class="mb-3 col-md-5">
-          <label for="chiefGuestsExpected" class="form-label">Number of Chief Guests Expected</label>
+          <label for="chiefGuestsExpected" class="form-label"
+            >Number of Chief Guests Expected</label
+          >
           <input
             name="book[chiefGuestsExpected]"
             placeholder="Enter number"
@@ -79,13 +82,17 @@
         </div>
 
         <div class="mb-3">
-          <label for="eventDetails" class="form-label">Details of the Event</label>
+          <label for="eventDetails" class="form-label"
+            >Details of the Event</label
+          >
           <textarea
             name="book[eventDetails]"
             placeholder="Enter description"
             class="form-control"
             required
-          ><%= booking.eventDetails %></textarea>
+          >
+<%= booking.eventDetails %></textarea
+          >
           <div class="invalid-feedback">Please write description</div>
         </div>
 
@@ -103,19 +110,25 @@
         </div>
 
         <div class="mb-3">
-          <label for="tools" class="form-label">Other Facilities Required</label>
+          <label for="tools" class="form-label"
+            >Other Facilities Required</label
+          >
           <textarea
             style="height: 8rem"
             name="book[tools]"
             placeholder="like LCD Projector, Mic, etc."
             class="form-control"
             required
-          ><%= booking.tools %></textarea>
+          >
+<%= booking.tools %></textarea
+          >
           <div class="invalid-feedback">Please Enter valid number</div>
         </div>
       </div>
 
-      <button type="submit" class="btn btn-dark add-btn mt-3">Update Booking</button>
+      <button type="submit" class="btn btn-dark add-btn mt-3">
+        Update Booking
+      </button>
       <br /><br />
     </form>
   </div>
