@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-*
-{
-    margin: 0;
-    padding: 0;
+
+body{
+    height: 100vh;
 }
 
 .info{
@@ -84,10 +83,6 @@
 
 .image-gallery img:hover,
 #img4:hover {
-    transform: scale(1.05); /* Slightly enlarge the image on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a shadow to give a 3D effect */
-}
-section{
-    width: 100%;
-    height: 100vh;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
