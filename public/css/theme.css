@@ -1,88 +1,90 @@
-#theme{
-    width:93px;
-    height:32px;
-    position: relative;
-    display: flex;
-    background-color: #ebebeb;
-    border-radius: 200px;
-    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px =5px 15px rgba(255,255,255,0.4) ;
-    cursor: pointer;
-    transition:0.4s ;
-  }
- 
-  #theme:after
-  {
-     content:"" ;
-     width: 27px;
-     height: 28px;
-     position: absolute;
-     top:2px;
-     left:4px;
-     background:linear-gradient(180deg,#ffcc89,#d8860b);
-     border-radius:180px;
-     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
-    transition:0.4s ;
-  }
- 
-  #theme-toggle
-  {
-   width: 0;
-   height: 0;
-  }
- 
-  #theme-toggle:checked + #theme
-  {
-     background: #242424;
-  }
- 
-  #theme-toggle:checked + #theme::after
-  {
-    left: 10px;
-    transform:translateX(185%);
-    background: linear-gradient(180deg,#777,#3a3a3a);
-  }
- 
-  .fa-sun {
-   margin: 0.4rem 0 0 4rem;
- }
- 
- .fa-moon {
-   margin: 0.4rem 0 0 -4rem;
-   color: white;
- }
+#theme {
+  width: 93px;
+  height: 32px;
+  position: relative;
+  display: flex;
+  background-color: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px =5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+#theme:after {
+  content: "";
+  width: 27px;
+  height: 28px;
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
+}
+
+#theme-toggle {
+  width: 0;
+  height: 0;
+}
+
+#theme-toggle:checked + #theme {
+  background: #242424;
+}
+
+#theme-toggle:checked + #theme::after {
+  left: 10px;
+  transform: translateX(185%);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.fa-sun {
+  margin: 0.4rem 0 0 4rem;
+}
+
+.fa-moon {
+  margin: 0.4rem 0 0 -4rem;
+  color: white;
+}
 
 .dark-mode {
-    background: linear-gradient(180deg, #121212, #1f1f1f);
-    color: #e0e0e0;
+  background: linear-gradient(180deg, #121212, #1f1f1f);
+  color: #e0e0e0;
 }
 
 .dark-mode .navbar {
-    background: linear-gradient(to bottom, #3d3d3d, #1a1a1a);
+  background: linear-gradient(to bottom, #3d3d3d, #1a1a1a);
 }
 
-.dark-mode .navbar-toggler{
-   background: white;
+.dark-mode .navbar-toggler {
+  background: white;
 }
 
 .dark-mode .navbar a {
-    color: white !important;
+  color: white !important;
 }
 
-.dark-mode .info h5 , .dark-mode .info h1, .dark-mode .info h3{
-    color: white;
+.dark-mode .info h5,
+.dark-mode .info h1,
+.dark-mode .info h3 {
+  color: white;
 }
 
-.dark-mode #img1, #img2, #img3 {
-    border: 2px solid white; /* Set the border color */
-    border-radius: 8px; /* Optional: for rounded corners */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), /* Glowing effect */
-                0 0 30px rgba(255, 255, 255, 0.3),
-                0 0 45px rgba(255, 255, 255, 0.2);
-    transition: box-shadow 0.5s ease; /* Smooth transition */
+.dark-mode #img1,
+#img2,
+#img3 {
+  border: 2px solid white; /* Set the border color */
+  border-radius: 8px; /* Optional: for rounded corners */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+    /* Glowing effect */ 0 0 30px rgba(255, 255, 255, 0.3),
+    0 0 45px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.5s ease;
 }
 
-.dark-mode #img1:hover, #img2:hover, #img3:hover {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7), /* Brighter glow on hover */
-                0 0 40px rgba(255, 255, 255, 0.5),
-                0 0 60px rgba(255, 255, 255, 0.4);
+.dark-mode #img1:hover,
+#img2:hover,
+#img3:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7),
+    0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.4);
 }
