@@ -107,15 +107,11 @@ body {
     0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.4);
 }
 
-@media (max-width: 1129px) {
-  body {
-    height: auto;
-  }
-}
+
 
 @media (max-width: 1199px) {
   body {
-    height: auto;
+    height: 100vh;
   }
 
   .text-content {
@@ -125,9 +121,7 @@ body {
 }
 
 @media (max-width: 1088px) {
-  body {
-    height: auto;
-  }
+ 
 
   .info,
   .text-content,
@@ -176,9 +170,7 @@ body {
 }
 
 @media (max-width: 983px) {
-  body {
-    height: auto;
-  }
+ 
   .info,
   .text-content,
   .image-gallery,

@@ -60,6 +60,10 @@
     background: linear-gradient(to bottom, #3d3d3d, #1a1a1a);
 }
 
+.dark-mode .navbar-toggler{
+   background: white;
+}
+
 .dark-mode .navbar a {
     color: white !important;
 }
