@@ -67,3 +67,19 @@
 .dark-mode .info h5 , .dark-mode .info h1, .dark-mode .info h3{
     color: white;
 }
+
+.dark-mode #img1, #img2, #img3 {
+    width: 100%;
+    border: 2px solid white; /* Set the border color */
+    border-radius: 8px; /* Optional: for rounded corners */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), /* Glowing effect */
+                0 0 30px rgba(255, 255, 255, 0.3),
+                0 0 45px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.dark-mode #img1:hover, #img2:hover, #img3:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7), /* Brighter glow on hover */
+                0 0 40px rgba(255, 255, 255, 0.5),
+                0 0 60px rgba(255, 255, 255, 0.4);
+}
