@@ -219,3 +219,25 @@ body {
     margin-left: 1.7rem;
   }
 }
+
+@media (max-width:971px) {
+  .image-gallery #img1,
+.image-gallery #img2,
+.image-gallery #img3 {
+  width: 100%;
+}
+
+.text-content h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.text-content h5 {
+  font-size: 1rem;
+}
+
+.text-content h3{
+  font-size: 1.2rem;
+}
+
+}
