@@ -1,7 +1,17 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Collaborative Corner</a>
-
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarText" 
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <div class="navbar-nav ml-3">
         <li class="nav-item">
@@ -16,14 +26,12 @@
           </label>
         </div>
       </div>
-
       <div class="navbar-nav ms-auto">
         <% if (!currentUser) { %>
         <a class="nav-link" href="/signup"><b>SignUp</b></a>
         <a class="nav-link" href="/login"><b>Login</b></a>
         <% } else { %>
         <a class="nav-link" href="/logout"><b>Logout</b></a>
-
         <% if (userRole === 'admin') { %>
         <a class="nav-link" href="/show"><b>Bookings</b></a>
         <% } else if (userRole === 'student') { %>

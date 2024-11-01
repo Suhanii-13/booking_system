@@ -4,6 +4,10 @@ body {
   height: 100vh;
 }
 
+.navbar {
+  background: white;
+}
+
 .info {
   display: flex;
   flex-direction: row-reverse;
