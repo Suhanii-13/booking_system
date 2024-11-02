@@ -21,6 +21,7 @@
             <span class="text-warning">Pending </span>
             <% } %>
           </p>
+          <% if (booking.status === 'pending') { %>
           <div class="d-flex justify-content-between mt-3">
             <form
               action="/msg/edit/<%= booking._id %>"
@@ -39,6 +40,7 @@
               </button>
             </form>
           </div>
+          <% } %>
         </div>
       </div>
     </div>

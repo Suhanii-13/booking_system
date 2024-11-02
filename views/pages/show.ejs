@@ -31,6 +31,7 @@
             <strong>Tools Required:</strong> <%= booking.tools %>
           </p>
 
+          <% if (booking.status === 'pending') { %>
           <div class="d-flex justify-content-between mt-3">
             <form
               action="/approve/<%= booking._id %>"
@@ -43,6 +44,16 @@
               <button type="submit" class="btn btn-danger">Reject</button>
             </form>
           </div>
+          <% } else { %>
+          <p class="card-text">
+            <strong>Status:</strong>
+            <% if (booking.status === 'approved') { %>
+            <span class="text-success">Approved</span>
+            <% } else if (booking.status === 'rejected') { %>
+            <span class="text-danger">Rejected</span>
+            <% } %>
+          </p>
+          <% } %>
         </div>
       </div>
     </div>
