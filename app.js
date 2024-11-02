@@ -53,9 +53,9 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
 
-store.on("error",()=>{
-  console.log("error to connect sessio store")
-})
+store.on("error", () => {
+  console.log("error to connect sessio store");
+});
 
 //session configuration
 const sessionOption = {
