@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -5,6 +9,7 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -25,8 +30,37 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
+//mongo connection
+
+const dbUrl = process.env.mongo_url;
+main()
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+async function main() {
+  await mongoose.connect(dbUrl);
+}
+
+//session for production
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: process.env.secret,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error",()=>{
+  console.log("error to connect sessio store")
+})
+
+//session configuration
 const sessionOption = {
-  secret: "thisshouldbeabettersecret",
+  store,
+  secret: process.env.secret,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -35,6 +69,7 @@ const sessionOption = {
     httpOnly: true,
   },
 };
+
 app.use(session(sessionOption));
 app.use(flash());
 
@@ -54,27 +89,12 @@ app.use((req, res, next) => {
   next();
 });
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/bookingSystem";
-main()
-  .then(() => {
-    console.log("Connected to DB");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-async function main() {
-  await mongoose.connect(MONGO_URL);
-}
-
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });
 
-
-
 app.use("/", userRouter);
-app.use(bookingRouter)
-
+app.use(bookingRouter);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not Found"));
