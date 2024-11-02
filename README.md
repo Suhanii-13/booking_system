@@ -34,4 +34,53 @@ Here is a preview of the Seminar Hall Booking System:
   <img src="https://github.com/user-attachments/assets/11c83085-d6c5-49d0-81e5-f6f93472713e" alt="2nd half" width="49%">
 </div>
 
+## Project Structure
+
+WEBATHON/
+├── .vscode/
+├── controllers/
+│   ├── bookings.js
+│   └── user.js
+├── models/
+│   ├── booking.js
+│   └── user.js
+├── node_modules/
+├── public/
+│   ├── css/
+│   │   ├── book.css
+│   │   ├── home.css
+│   │   ├── show.css
+│   │   └── theme.css
+│   └── js/
+│       ├── theme.js
+│       └── validation.js
+├── routes/
+│   ├── booking.js
+│   └── user.js
+├── utils/
+│   ├── ExpressError.js
+│   └── wrapAsync.js
+├── views/
+│   ├── includes/
+│   │   ├── flash.ejs
+│   │   └── navbar.ejs
+│   ├── layouts/
+│   │   └── boilerplate.ejs
+│   ├── pages/
+│   │   ├── edit.ejs
+│   │   ├── index.ejs
+│   │   ├── msg.ejs
+│   │   ├── new.ejs
+│   │   └── show.ejs
+│   └── users/
+│       ├── login.ejs
+│       ├── signup.ejs
+│       └── error.ejs
+├── .env
+├── .gitignore
+├── app.js
+├── middleware.js
+├── package-lock.json
+├── package.json
+└── README.md
 
