@@ -34,7 +34,9 @@ Here is a preview of the Seminar Hall Booking System:
   <img src="https://github.com/user-attachments/assets/11c83085-d6c5-49d0-81e5-f6f93472713e" alt="2nd half" width="49%">
 </div>
 
-## Project Structure
+## 🧩 Project Structure
+
+```plaintext
 
 WEBATHON/
 ├── .vscode/
@@ -83,4 +85,4 @@ WEBATHON/
 ├── package-lock.json
 ├── package.json
 └── README.md
-
+```
