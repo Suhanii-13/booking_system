@@ -1,17 +1,16 @@
 # Seminar Hall Booking System
 
-## Overview
+## Purpose
 A web application designed to streamline seminar hall bookings with **secure user authentication** and **real-time admin approvals**. This system provides a seamless experience for users to book seminar halls and for admins to manage booking requests efficiently.
 
-## Features
-
+## Major Functions
 - **User Authentication**: Secure login and registration using Passport.js to manage user sessions.
 - **Responsive Design**: The application is built with Bootstrap to ensure optimal viewing on different devices.
 - **Separate Dashboards**:
   - **User Dashboard**: Allows users to view their bookings, event names, and booking statuses.
   - **Admin Dashboard**: Enables the admin to approve or reject booking requests.
 
-## Technologies Used
+## Dependencies
 
 - **EJS**,**Express**,**Express Session**,**Passport.js**, **Bootstrap**, **MongoDB**
 
@@ -44,11 +43,12 @@ npm install
 3.Configure Environment Variables:
 Set up your environment variables, such as MongoDB URI and session secrets, in a .env file.
 
-4Start the Application:
+4 Start the Application:
 
 ```bash
 node app.js
 ```
+5. Access the App at http://localhost:3000
 
 ## 🧩 Project Structure
 
