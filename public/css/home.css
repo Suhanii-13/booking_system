@@ -272,11 +272,19 @@ body {
 }
 
 
-@media (max-width:408px){
+@media (max-width:540px){
   .image-gallery #img1,
   .image-gallery #img2,
   .image-gallery #img3 {
     width: 80%;
     height: 50%;
+  }
+
+  .text-content h3{
+    margin-left:4rem;
+  }
+
+  .text-content h1{
+    margin-left: 4rem;
   }
 }
