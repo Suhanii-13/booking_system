@@ -4,6 +4,9 @@ body {
   height: 100vh;
 }
 
+.navbar {
+  background-color: white;
+}
 .info {
   display: flex;
   flex-direction: row-reverse;
@@ -232,6 +235,7 @@ body {
   .image-gallery #img2,
   .image-gallery #img3 {
     width: 100%;
+    height: 50%;
   }
 
   .text-content h1 {
@@ -264,5 +268,15 @@ body {
   .text-content {
     width: 100%;
     margin-left: -2rem;
+  }
+}
+
+
+@media (max-width:408px){
+  .image-gallery #img1,
+  .image-gallery #img2,
+  .image-gallery #img3 {
+    width: 80%;
+    height: 50%;
   }
 }
