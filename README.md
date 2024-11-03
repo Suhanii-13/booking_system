@@ -33,8 +33,8 @@ Follow these steps to run the project locally:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/seminar-hall-booking-system.git
-   cd seminar-hall-booking-system
+   git clone https://github.com/Suhanii-13/booking_system.git
+   cd booking_system
    ```
 
 2.**Install Dependencies**
