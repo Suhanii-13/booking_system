@@ -1,10 +1,7 @@
 # Seminar Hall Booking System
 
 ## Overview
-
-The **Seminar Hall Booking System** is a web application developed as part of a **Weathon event** (a web development hackathon of 7 hours). This application aims to provide a user-friendly platform for booking seminar halls efficiently. it allows users to easily reserve seminar spaces for various events.
-
-This project has been an exciting opportunity for me to apply my technical skills and creativity in developing a functional web application. I enjoyed implementing features such as user authentication, session management, and responsive design, ensuring a seamless user experience.
+A web application designed to streamline seminar hall bookings with **secure user authentication** and **real-time admin approvals**. This system provides a seamless experience for users to book seminar halls and for admins to manage booking requests efficiently.
 
 ## Features
 
@@ -16,23 +13,42 @@ This project has been an exciting opportunity for me to apply my technical skill
 
 ## Technologies Used
 
-- **EJS**: Embedded JavaScript templates for rendering dynamic HTML.
-- **Express**: A web application framework for Node.js for building the backend.
-- **Express Session**: To handle session management and user authentication.
-- **Passport.js**: For implementing user authentication strategies.
-- **Bootstrap**: For creating a responsive and visually appealing layout.
-- **MongoDB**:for backend.
+- **EJS**,**Express**,**Express Session**,**Passport.js**, **Bootstrap**, **MongoDB**
 
-## Frontend View
+## Usage Guide
 
-Here is a preview of the Seminar Hall Booking System:
-## Frontend View
+### Users
+1. **Sign Up**: Fill out the signup form, select the option as **Student**, and complete the registration.
+2. **Book a Seminar Hall**: After logging in, navigate to the booking section to reserve a seminar hall.
+3. **Check Approval Status**: Click on the **Messages** option in the navbar to view the status of your booking approval.
 
-![Screenshot from 2024-10-02 15-54-37](https://github.com/user-attachments/assets/591a5568-1a9d-43a5-b636-42fbdd3332fb) 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/0a67df27-73ee-439c-887b-6243a83ffbfd" alt="1st half" width="49%">
-  <img src="https://github.com/user-attachments/assets/11c83085-d6c5-49d0-81e5-f6f93472713e" alt="2nd half" width="49%">
-</div>
+### Admins
+1. **Sign Up**: In the signup form, fill in the username and password, and choose the role as **Admin** to gain access.
+2. **Manage Bookings**: Log in and go to the **Bookings** section in the navbar. Here, you can approve or reject booking requests made by students.
+
+
+## Setup Instructions
+
+Follow these steps to run the project locally:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Suhanii-13/booking_system.git
+   cd booking_system
+   ```
+
+2.**Install Dependencies**
+```bash
+npm install
+```
+3.Configure Environment Variables:
+Set up your environment variables, such as MongoDB URI and session secrets, in a .env file.
+
+4Start the Application:
+
+```bash
+node app.js
+```
 
 ## 🧩 Project Structure
 
