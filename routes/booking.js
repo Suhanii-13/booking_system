@@ -9,7 +9,7 @@ const { isLoggedIn } = require("../middleware");
 bookingController.scheduleAutoDelete();
 
 //home route
-router.get("/home", bookingController.renderHome);
+router.get("/", bookingController.renderHome);
 
 // User-specific routes
 router
