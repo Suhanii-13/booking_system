@@ -15,7 +15,7 @@ module.exports.signup = wrapAsync(async (req, res, next) => {
     req.login(registeredUser, (err) => {
       if (err) return next(err);
       req.flash("success", "Welcome");
-      res.redirect("/home");
+      res.redirect("/");
     });
   } catch (e) {
     req.flash("error", e.message);
@@ -51,6 +51,6 @@ module.exports.logout = (req, res, next) => {
   req.logout(function (err) {
     if (err) return next(err);
     req.flash("success", "You’re logged out");
-    res.redirect("/home");
+    res.redirect("/");
   });
 };

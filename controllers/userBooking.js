@@ -27,7 +27,7 @@ exports.createBooking = wrapAsync(async (req, res) => {
 
   await newBooking.save();
   req.flash("success", "Booking made successfully!");
-  res.redirect("/home");
+  res.redirect("/");
 });
 
 exports.viewUserBookings = wrapAsync(async (req, res) => {
