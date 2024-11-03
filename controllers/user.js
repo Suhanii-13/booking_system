@@ -40,7 +40,7 @@ module.exports.login = (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) return next(err);
       req.flash("success", "Welcome back !");
-      const redirectUrl = req.session.returnTo || "/home";
+      const redirectUrl = req.session.returnTo || "/";
       delete req.session.returnTo;
       return res.redirect(redirectUrl);
     });
